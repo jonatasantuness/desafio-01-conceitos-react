@@ -19,18 +19,15 @@ export function TaskList() {
 
     if (!newTaskTitle) return;
 
-    if (newTaskTitle.match(/^[^-\s][\w\s-]+$/gi)) {
-      setNewTaskTitle('');
-
-      setTasks([
-        ...tasks,
-        {
-          id: Math.floor(Math.random() * 256),
-          title: newTaskTitle,
-          isComplete: false
-        }
-      ]);
-    }
+    setNewTaskTitle('');
+    setTasks([
+      ...tasks,
+      {
+        id: Math.random(),
+        title: newTaskTitle,
+        isComplete: false
+      }
+    ]);
   }
 
   function handleToggleTaskCompletion(id: number) {
